@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+
 const todoData = [
   {
     name: 'Study Class Components',
@@ -60,7 +61,7 @@ class App extends React.Component {
     })
   }
 
-  clearPurchased = () => {
+  clear = () => {
     this.setState({
       todo: this.state.todo.filter(item => !item.completed)
     });
@@ -70,8 +71,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addItem}/>
-        <TodoList todo={this.state.todo} toggleItem={this.toggleItem}/>
+        <TodoList todo={this.state.todo} toggleItem={this.toggleItem} clear={this.clear}/>
+        <TodoForm addItem={this.addItem} />
       </div>
     );
   }
